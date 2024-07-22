@@ -1,0 +1,5 @@
+.text 
+	li $t0, 10
+	li $t1, 5
+	sub $t2, $t0, $t1 #t2=t0-t1
+	subi $s0, $t2, 2

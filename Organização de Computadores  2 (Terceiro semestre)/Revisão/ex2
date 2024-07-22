@@ -1,0 +1,36 @@
+#Elabore um algoritmo, em MIPs, que solicite o
+#valor do salário de um funcionário e calcule um
+#aumento de 10%. Apresente o valor em tela
+#para o usuário.
+
+.data
+	msg1: .asciiz "Salario: "
+	msg2: .asciiz "Salario com aumento de 10%: "
+
+.text
+   main:
+   	li $v0, 4
+   	la $a0, msg1
+   	syscall
+   	
+   	li $v0, 5
+   	syscall
+   	move $t0, $v0
+   	
+   	li $t1, 10
+   	mul $t2, $t1, $t0
+   	li $t3, 100
+   	div $t2, $t3
+   	mflo $t2
+   	add $t3, $t2, $t0
+   	
+   	li $v0, 4
+	la $a0, msg2
+	syscall
+	
+	li $v0, 1
+	move $a0, $t3
+	syscall
+	
+	li $v0, 10
+	syscall
