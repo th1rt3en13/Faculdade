@@ -15,3 +15,6 @@ Este repositório contém todas as atividades e projetos desenvolvidas durante m
 
 **<Organização de Computadores 2>**
 * (Assembly) Convenções de Chamada e Padrões de Uso dos Registradores. Operações Aritméticas e Lógicas. Instruções de Movimento de Dados. Instruções de Controle de Fluxo. Operações com Ponto Flutuante. 
+
+**<Estrutura de Dados 1>**
+* (C++) Manipulação de dados em memória principal e secundária. Tipos de dados. Recursividade. Classes. Estruturas de dados estáticas e dinâmicas. Estruturas de dados básicas e seus algoritmos. Pesquisa de Dados. Ordenação de dados utilizando métodos simples.
