@@ -20,6 +20,6 @@ Este repositório contém todas as atividades e projetos desenvolvidas durante m
 * (C++) Manipulação de dados em memória principal e secundária. Tipos de dados. Recursividade. Classes. Estruturas de dados estáticas e dinâmicas. Estruturas de dados básicas e seus algoritmos. Pesquisa de Dados. Ordenação de dados utilizando métodos simples.
 
 **<Projeto de Sistemas 1>**
-*(Java) Modelagem de análise versus modelagem de projeto (design); Introdução à sintaxe de Java; Criação
+* (Java) Modelagem de análise versus modelagem de projeto (design); Introdução à sintaxe de Java; Criação
 de código Orientado a Objetos (OO) em Java; Introdução às camadas de domínio, interface e
 persistência.
