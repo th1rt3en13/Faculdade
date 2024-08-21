@@ -23,3 +23,11 @@ Este repositório contém todas as atividades e projetos desenvolvidas durante m
 * (Java) Modelagem de análise versus modelagem de projeto (design); Introdução à sintaxe de Java; Criação
 de código Orientado a Objetos (OO) em Java; Introdução às camadas de domínio, interface e
 persistência.
+
+**<Cálculo Numérico>**
+* (C++) Aproximações numéricas. Equações algébricas e transcendentes. Sistemas de Equações Lineares.
+Ajustamento de Curvas. Interpolação. Integração Numérica. Implementação de algoritmos
+numéricos.
+
+**<Álgebra Linear>**
+* (Python/ Adaptações por conta própria) Matrizes: Classificação e Operações. Determinantes. Sistemas de equações lineares. Vetores. Espaços vetoriais. Independência Linear. Bases e dimensão. Transformações lineares. Autovalores e autovetores. Diagonalização de matrizes.
