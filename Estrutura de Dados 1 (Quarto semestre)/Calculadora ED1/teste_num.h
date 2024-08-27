@@ -6,4 +6,3 @@ bool eh_par(int num);
 bool eh_impar(int num);
 
 bool eh_primo (int num);
-
