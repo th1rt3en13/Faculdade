@@ -31,3 +31,9 @@ numéricos.
 
 **<Álgebra Linear>**
 * (Python/ Adaptações por conta própria) Matrizes: Classificação e Operações. Determinantes. Sistemas de equações lineares. Vetores. Espaços vetoriais. Independência Linear. Bases e dimensão. Transformações lineares. Autovalores e autovetores. Diagonalização de matrizes.
+
+**<Programação 3>**
+* Classes e Enumeradores. Atributos. Métodos. Encapsulamento. Hierarquia de Classes. Herança e
+Interface. Polimorfismo. Associação, herança, agregação e composição. Estruturas de dados do Java.
+Tratamento de Erro. Interface gráfica desktop em java Swing. Tratamento de Eventos. Thread.
+Manipulação de arquivos texto e binários. Mapeamento OO Relacional e Persistência usando JDBC.
