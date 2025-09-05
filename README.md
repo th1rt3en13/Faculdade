@@ -37,3 +37,6 @@ numéricos.
 Interface. Polimorfismo. Associação, herança, agregação e composição. Estruturas de dados do Java.
 Tratamento de Erro. Interface gráfica desktop em java Swing. Tratamento de Eventos. Thread.
 Manipulação de arquivos texto e binários. Mapeamento OO Relacional e Persistência usando JDBC.
+
+**<Estrutura de Dados 1>**
+* (C++) Análise de algoritmos. Organização de arquivos. Árvores. Busca Digital. Árvores balanceadas. Listas de prioridades. Tabelas de dispersão.
