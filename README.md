@@ -41,5 +41,5 @@ Manipulação de arquivos texto e binários. Mapeamento OO Relacional e Persist�
 **<Estrutura de Dados 2>**
 * (C++) Análise de algoritmos. Organização de arquivos. Árvores. Busca Digital. Árvores balanceadas. Listas de prioridades. Tabelas de dispersão.
 
-**<UX e Desenvolvimento WEB>**
+**< UX e Desenvolvimento WEB >**
 * Experiência do usuário. Design de interfaces. HTML. CSS. Java Script. JQuery. JQueryUI. 
