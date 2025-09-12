@@ -38,5 +38,8 @@ Interface. Polimorfismo. Associação, herança, agregação e composição. Est
 Tratamento de Erro. Interface gráfica desktop em java Swing. Tratamento de Eventos. Thread.
 Manipulação de arquivos texto e binários. Mapeamento OO Relacional e Persistência usando JDBC.
 
-**<Estrutura de Dados 1>**
+**<Estrutura de Dados 2>**
 * (C++) Análise de algoritmos. Organização de arquivos. Árvores. Busca Digital. Árvores balanceadas. Listas de prioridades. Tabelas de dispersão.
+
+**<UX e Desenvolvimento WEB>**
+* Experiência do usuário. Design de interfaces. HTML. CSS. Java Script. JQuery. JQueryUI. 
