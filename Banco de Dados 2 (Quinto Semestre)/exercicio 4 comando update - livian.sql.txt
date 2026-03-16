@@ -1,0 +1,54 @@
+--1) Altere o cargo “Vendedor” para “Representante Comercial”.
+UPDATE Cargo
+SET Nome = 'Representante Comercial'
+WHERE Nome = 'Vendedor';
+
+--2) Aplique um aumento de salário em 10% para os engenheiros.
+UPDATE Cargo
+SET Salario = Salario*1.10
+WHERE Nome = 'Engenheiro'
+
+--3) Altere a data de nascimento do funcionário de matrícula 34732 para 10/09/1978.
+UPDATE Funcionário
+SET Data_nascimento = TO_DATE('10/09/1978', DD/MM/YYYY)
+WHERE Matricula = 34732;
+
+--4) Altere o bairro e a cidade de todos os funcionários que residem no CEP 25890010 para “Ouro
+Verde” e “Rio das Ostras” respectivamente.
+UPDATE Funcionário
+SET Bairro = 'Ouro Verde',
+    Cidade = 'Rio das Ostras'
+WHERE Cep = '25890010';
+
+--5) O funcionário “Carlos Alberto da Rocha” foi transferido para o departamento TI, atualize seu
+cadastro.
+UPDATE Funcionário
+SET Sigla_Depto = 'TI'
+WHERE Nome = 'Carlos Alberto da Rocha';
+
+--6) Troque a data de início da atuação em projeto para 01/03/2013 para todos os funcionários que
+iniciaram em 29/02/2013 e ainda não finalizaram.
+UPDATE Alocação
+SET Data_inicio = TO_DATE('01/03/2013','DD/MM/YYYY')
+WHERE Data_inicio = TO_DATE('29/02/2013','DD/MM/YYYY')
+AND Data_fim IS NULL;
+
+--7) Todos os funcionários do sexo masculino residentes em Macaé foram transferidos para o
+departamento de engenharia. Atualize-os.
+UPDATE Funcionário
+SET Sigla_Depto ='ENG'
+WHERE Sexo = 'M'
+AND Cidade = 'Macae';
+
+--8) Todos os projetos cujo custo previsto é superior a 10.000,00 deve ser de responsabilidade do
+departamento Administração.
+UPDATE Projeto
+SET Sigla_depto_resp = 'ADM'
+WHERE Custo_previsto>10000;
+
+--9) O supervisor de matrícula 386 acabou de assumir o departamento de Marketing. Atualize a base
+de dados.
+UPDATE Departamento
+SET Matricula_supervisor = 386
+WHERE Sigla = 'MKT';
+
