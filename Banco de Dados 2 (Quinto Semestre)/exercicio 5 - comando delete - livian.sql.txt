@@ -1,0 +1,47 @@
+--1) Exclua o cargo “Analista Pleno”.
+DELETE FROM Cargo
+WHERE Nome = 'Analista Pleno'; 
+
+--2) Exclua os dependentes que nasceram antes de 01/01/1990. 
+DELETE FROM Dependente
+WHERE Data_nascimento < TO_DATE('01/01/1990','DD/MM/YYYY');
+
+--3) Exclua os dependentes do funcionário CARLOS ALBERTO DA ROCHA. 
+DELETE FROM Dependente
+WHERE Codigo_funcionario IN(
+	SELECT Matricula
+	FROM Funcionário
+	WHERE Nome = 'CARLOS ALBERTO DA ROCHA'
+);
+
+--4) Exclua os projetos de custo previsto acima de 300.000 e sem departamento responsável. 
+DELETE FROM Projetos
+WHERE Custo_previsto >300000
+AND Sigla_depto_resp IS NULL;
+
+--5) Exclua os funcionários que nunca atuaram em projetos. 
+DELETE FROM Funcionario
+WHERE Matricula NOT IN(
+	SELECT Codigo_funcionario
+	FROM Alocacao
+);
+
+--DESAFIO 
+--6) Exclua os dependentes com mais de 18 anos de idade. 
+DELETE FROM Dependentes
+WHERE Data_nascimento <= ADD_MONTHS(SYSDATE, -216); --18 anos = 216 meses 
+--ADD_MONTHS calcula a data limite.
+
+--7) Há funcionários que foram demitidos e precisam ser excluídos, porém há diversos registros sobre 
+a atuação dos mesmos em seus respectivos projetos. Portanto, caso sejam excluídos, todos os 
+registros vinclulados a estes funcionários também serão, causando perda de dados históricos e 
+afetando os relatórios da empresa. Qual seria a forma mais adequada para resolver este problema? 
+Descreva a solução, bem como os comandos passo a passo. 
+ALTER TABLE Funcionario
+ADD Status VARCHAR2(15);
+
+UPDATE Funcionario
+SET Status = 'DEMITIDO'
+WHERE Matricula = 123;
+
+
