@@ -1,0 +1,133 @@
+--1) Listar os funcionários, seus respectivos cargos e departamentos.
+	--ANSI
+		SELECT f.nome, c.nome AS cargo, d.nome AS departamento
+		FROM funcionario f
+		INNER JOIN cargo c ON f.id_cargo = c.id_cargo
+		INNER JOIN departamento d ON f.id_departamento = d.id_departamento;
+	--SGBD
+		SELECT f.nome, c.nome, d.nome
+		FROM funcionario f, cargo c, departamento d
+		WHERE f.id_cargo = c.id_cargo
+		AND f.id_departamento = d.id_departamento;
+
+--2) Listar todos os funcionários e seus respectivos dependentes. Os que não tiverem dependentes deverão aparecer da mesma forma.
+	--ANSI
+		SELECT f.nome, dep.nome
+		FROM funcionario f
+		LEFT JOIN dependente dep ON f.id_funcionario = dep.id_funcionario;
+	--SGBD
+		SELECT f.nome, dep.nome
+		FROM funcionario f, dependente dep
+		WHERE f.id_funcionario = dep.id_funcionario(+);
+
+--3) Listar o nome do funcionário e o nome dos respectivos dependentes acima de 10
+anos.
+	--ANSI
+		SELECT f.nome, dep.nome
+		FROM funcionario f
+		INNER JOIN dependente dep ON f.id_funcionario = dep.id_funcionario
+		WHERE dep.idade > 10;
+	--SGBD
+		SELECT f.nome, dep.nome
+		FROM funcionario f, dependente dep
+		WHERE f.id_funcionario = dep.id_funcionario
+		AND dep.idade > 10;
+
+--4) Listar o nome dos supervisores e seus respectivos subordinados.
+	--ANSI
+		SELECT s.nome AS supervisor, f.nome AS subordinado
+		FROM funcionario f
+		INNER JOIN funcionario s ON f.id_supervisor = s.id_funcionario;
+	--SGBD
+		SELECT s.nome, f.nome
+		FROM funcionario f, funcionario s
+		WHERE f.id_supervisor = s.id_funcionario;
+
+--5) Listar os funcionários e seus respectivos projetos iniciados a partir do ano 2010.
+	--ANSI
+		SELECT f.nome, p.nome
+		FROM funcionario f
+		INNER JOIN trabalha_em t ON f.id_funcionario = t.id_funcionario
+		INNER JOIN projeto p ON t.id_projeto = p.id_projeto
+		WHERE p.ano_inicio >= 2010;
+	--SGBD
+		SELECT f.nome, p.nome
+		FROM funcionario f, trabalha_em t, projeto p
+		WHERE f.id_funcionario = t.id_funcionario
+		AND t.id_projeto = p.id_projeto
+		AND p.ano_inicio >= 2010;
+
+--6) Listar todos os funcionários e seus projetos independentemente se estão alocados em projeto ou não.
+	--ANSI
+		SELECT f.nome, p.nome
+		FROM funcionario f
+		LEFT JOIN trabalha_em t ON f.id_funcionario = t.id_funcionario
+		LEFT JOIN projeto p ON t.id_projeto = p.id_projeto;
+	--SGBD
+		SELECT f.nome, p.nome
+		FROM funcionario f, trabalha_em t, projeto p
+		WHERE f.id_funcionario = t.id_funcionario(+)
+		AND t.id_projeto = p.id_projeto(+);
+
+--7) Listar os projetos e seus respectivos departamentos responsáveis.
+	--ANSI
+		SELECT p.nome, d.nome
+		FROM projeto p
+		INNER JOIN departamento d ON p.id_departamento = d.id_departamento;
+	--SGBD
+		SELECT p.nome, d.nome
+		FROM projeto p, departamento d
+		WHERE p.id_departamento = d.id_departamento;
+
+--8) Listar todos os projetos e seus departamentos responsáveis. Os projetos sem
+responsáveis deverão ser listados com o texto "SEM RESPONSÁVEL".
+	--ANSI
+		SELECT p.nome,
+     	  		COALESCE(d.nome, 'SEM RESPONSÁVEL') AS departamento
+		FROM projeto p
+		LEFT JOIN departamento d ON p.id_departamento = d.id_departamento;
+	--SGBD
+		SELECT p.nome,
+       			NVL(d.nome, 'SEM RESPONSÁVEL')
+		FROM projeto p, departamento d
+		WHERE p.id_departamento = d.id_departamento(+);
+
+--9) Listar os funcionários, o cargo, o departamento e os projetos em que eles atuam ainda em andamento.
+	--ANSI
+		SELECT f.nome, c.nome, d.nome, p.nome
+		FROM funcionario f
+		INNER JOIN cargo c ON f.id_cargo = c.id_cargo
+		INNER JOIN departamento d ON f.id_departamento = d.id_departamento
+		INNER JOIN trabalha_em t ON f.id_funcionario = t.id_funcionario
+		INNER JOIN projeto p ON t.id_projeto = p.id_projeto
+		WHERE p.status = 'EM ANDAMENTO';
+	--SGBD
+		SELECT f.nome, c.nome, d.nome, p.nome
+		FROM funcionario f, cargo c, departamento d, trabalha_em t, projeto p
+		WHERE f.id_cargo = c.id_cargo
+		AND f.id_departamento = d.id_departamento
+		AND f.id_funcionario = t.id_funcionario
+		AND t.id_projeto = p.id_projeto
+		AND p.status = 'EM ANDAMENTO';
+
+--10) Listar todos os projetos e todos os departamentos. Tanto os projetos sem
+departamento responsável quanto os departamentos sem projetos deverão ser listados.	
+	--ANSI
+		SELECT p.nome, d.nome
+		FROM projeto p
+		FULL OUTER JOIN departamento d
+		ON p.id_departamento = d.id_departamento;
+	--SGBD
+		SELECT p.nome, d.nome
+		FROM projeto p, departamento d
+		WHERE p.id_departamento = d.id_departamento(+)
+
+		UNION
+
+		SELECT p.nome, d.nome
+		FROM projeto p, departamento d
+		WHERE p.id_departamento(+) = d.id_departamento;
+
+--11) Quais questões acima poderiam ser resolvidos com NATURAL JOIN?
+	
+1, 3, 5, 7 e 9.
